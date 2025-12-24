@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-2.1.xsd"
+    default-menu-title="Chat Sessions" default-menu-index="20">
+
+    <actions>
+        <entity-find entity-name="DurChatSession" list="chatSessionList" order-by="-startedDate"/>
+    </actions>
+
+    <widgets>
+        <container style="panel">
+            <label text="Chat Sessions" type="h1"/>
+            <form-list name="ChatSessionList" list="chatSessionList" transition="ChatSessionView" key-field="chatSessionId">
+                <field name="chatSessionId"/>
+                <field name="partyId"/>
+                <field name="startedDate"/>
+                <field name="lastUpdatedStamp"/>
+                <field name="statusId"/>
+            </form-list>
+        </container>
+    </widgets>
+</screen>

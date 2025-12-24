@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/service-definition-3.xsd">
+
+    <service verb="start" noun="ChatSession" type="script">
+        <description>Start a new chat session for a user/party.</description>
+        <in-parameters>
+            <parameter name="partyId" required="true"/>
+        </in-parameters>
+        <out-parameters>
+            <parameter name="chatSessionId"/>
+        </out-parameters>
+        <script location="durion/chat/DurChatServices.groovy" method="startChatSession"/>
+    </service>
+
+    <service verb="send" noun="ChatMessage" type="script">
+        <description>Send a chat message and optionally call backend MCP server.</description>
+        <in-parameters>
+            <parameter name="chatSessionId" required="true"/>
+            <parameter name="fromRoleTypeId" required="true"/>
+            <parameter name="messageText" required="true" type="String"/>
+        </in-parameters>
+        <out-parameters>
+            <parameter name="responseMessageId"/>
+        </out-parameters>
+        <script location="durion/chat/DurChatServices.groovy" method="sendChatMessage"/>
+    </service>
+
+</services>

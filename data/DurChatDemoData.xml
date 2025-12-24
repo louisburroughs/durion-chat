@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-facade-xml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-data-3.xsd">
+
+    <!-- Minimal example chat session and messages for demo purposes -->
+    <entity entity-name="DurChatSession">
+        <field name="chatSessionId" value="DEMO_CHAT_1"/>
+        <field name="partyId" value="DEMO_CUSTOMER"/>
+        <field name="startedDate" value="2025-01-01 10:00:00.000"/>
+        <field name="lastUpdatedStamp" value="2025-01-01 10:05:00.000"/>
+        <field name="statusId" value="CHAT_ACTIVE"/>
+    </entity>
+
+    <entity entity-name="DurChatMessage">
+        <field name="chatMessageId" value="DEMO_CHAT_MSG_1"/>
+        <field name="chatSessionId" value="DEMO_CHAT_1"/>
+        <field name="fromRoleTypeId" value="USER"/>
+        <field name="messageText" value="Hello, I need help with my order."/>
+        <field name="sentDate" value="2025-01-01 10:00:30.000"/>
+    </entity>
+
+    <entity entity-name="DurChatMessage">
+        <field name="chatMessageId" value="DEMO_CHAT_MSG_2"/>
+        <field name="chatSessionId" value="DEMO_CHAT_1"/>
+        <field name="fromRoleTypeId" value="AGENT"/>
+        <field name="messageText" value="Sure, I can help with that. What is your order number?"/>
+        <field name="sentDate" value="2025-01-01 10:01:00.000"/>
+    </entity>
+
+</entity-facade-xml>

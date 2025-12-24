@@ -1,0 +1,10 @@
+// Placeholder Gradle build file for the durion-chat component.
+//
+// The main durion-moqui-frontend project is built using the
+// root-level build.gradle. This file is provided so that the
+// component can have custom build logic in the future (for
+// example, additional Groovy/Java tests or tooling) without
+// impacting the main build.
+
+// Add plugins, dependencies, and tasks here only if you have
+// a concrete need to build this component standalone.

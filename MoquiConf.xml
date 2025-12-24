@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Component-local Moqui configuration for durion-chat.
+     This file is intentionally minimal; global settings are
+     still controlled by the main Moqui conf in runtime/conf.
+     Add overrides here only when the chat component needs
+     specific configuration (screens, resources, etc.). -->
+<moqui-conf xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/moqui-conf-3.xsd">
+
+</moqui-conf>

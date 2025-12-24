@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/component-3.xsd">
+
+    <component-info>
+        <component-name>durion-chat</component-name>
+        <component-title>Durion Chat</component-title>
+        <component-description>Simple chat interface wired to backend MCP services.</component-description>
+    </component-info>
+
+    <entities>
+        <entity-resource type="data" location="entity/DurChatSession.xml"/>
+        <entity-resource type="data" location="entity/DurChatMessage.xml"/>
+    </entities>
+
+    <data>
+        <data-resource location="data/DurChatDemoData.xml"/>
+    </data>
+
+    <services>
+        <service-resource type="xml" location="service/DurChatServices.xml"/>
+    </services>
+
+    <webapp name="webroot">
+        <root-screen location="component://durion-chat/screen/durion/chat/ChatMain.xml"/>
+    </webapp>
+
+</component>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-2.1.xsd"
+    default-menu-title="Chat" default-menu-index="30">
+
+    <parameter name="chatSessionId" required="true"/>
+
+    <actions>
+        <entity-find-one entity-name="DurChatSession" value="chatSession"/>
+        <entity-find entity-name="DurChatMessage" list="messageList" order-by="sentDate">
+            <econdition field-name="chatSessionId" from="chatSessionId"/>
+        </entity-find>
+    </actions>
+
+    <widgets>
+        <container style="panel">
+            <label text="Chat Session" type="h1"/>
+            <label text="Chat Session ID: ${chatSession.chatSessionId}"/>
+
+            <section>
+                <label text="Messages" type="h2"/>
+                <form-list name="MessageList" list="messageList">
+                    <field name="fromRoleTypeId"/>
+                    <field name="sentDate"/>
+                    <field name="messageText" widget-style="pre"/>
+                </form-list>
+            </section>
+
+            <section>
+                <label text="Send Message" type="h2"/>
+                <transition name="sendMessage" path="../_run_service">
+                    <service verb="send" noun="ChatMessage"/>
+                    <parameter name="chatSessionId" from="chatSessionId"/>
+                    <parameter name="fromRoleTypeId" value="USER"/>
+                    <default-response url="ChatSessionView"/>
+                </transition>
+
+                <form-single name="SendMessageForm" transition="sendMessage">
+                    <field name="messageText">
+                        <default-field>
+                            <text-area rows="3" cols="60"/>
+                        </default-field>
+                    </field>
+                    <field name="submitButton">
+                        <default-field>
+                            <submit text="Send"/>
+                        </default-field>
+                    </field>
+                </form-single>
+            </section>
+        </container>
+    </widgets>
+</screen>
